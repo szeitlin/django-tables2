@@ -62,13 +62,13 @@ class CheckBoxColumn(Column):
         kwargs.update(extra)
         super(CheckBoxColumn, self).__init__(**kwargs)
 
-    @property
-    def header(self):
-        default = {'type': 'checkbox'}
-        general = self.attrs.get('input')
-        specific = self.attrs.get('th__input')
-        attrs = AttributeDict(default, **(specific or general or {}))
-        return mark_safe('<input %s/>' % attrs.as_html())
+    # @property
+    # def header(self):
+    #     default = {'type': 'h2'}
+    #     # general = self.attrs.get('input')
+    #     # specific = self.attrs.get('th__input')
+    #     attrs = AttributeDict(default, **(specific or general or {}))
+    #     return mark_safe('<input %s/>' % attrs.as_html())
 
     def render(self, value, bound_column):  # pylint: disable=W0221
         default = {
