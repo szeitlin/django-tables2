@@ -51,16 +51,16 @@ class EditableColumn(Column):
         kwargs.update(extra)
         super(EditableColumn, self).__init__(**kwargs)
 
-    @property
-    def header(self):
-        """ May want to get rid of this, don't actually want the header to be the same type as the column contents.
-        :return:
-        """
-        default = {'type': 'contenteditable'}
-        general = self.attrs.get('input')
-        specific = self.attrs.get('th__input')
-        attrs = AttributeDict(default, **(specific or general or {}))
-        return mark_safe('<input %s/>' % attrs.as_html())
+    # @property
+    # def header(self):
+    #     """ May want to get rid of this, don't actually want the header to be the same type as the column contents.
+    #     :return:
+    #     """
+    #     default = {'type': 'contenteditable'}
+    #     general = self.attrs.get('input')
+    #     specific = self.attrs.get('th__input')
+    #     attrs = AttributeDict(default, **(specific or general or {}))
+    #     return mark_safe('<input %s/>' % attrs.as_html())
 
     def render(self, value, bound_column):  # pylint: disable=W0221
         default = {
